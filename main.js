@@ -1,5 +1,6 @@
 // imports
 require('dotenv').config();
+const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
@@ -35,6 +36,7 @@ app.use(express.static('uploads'));
 
 // set template engine
 app.set('view engine', 'ejs');
+app.set("views", path.join(path.resolve(), "views"))
 
 // route prefix
 app.use("", require("./routes/routes"));
